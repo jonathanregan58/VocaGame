@@ -79,9 +79,9 @@ class MobileLegends {
 	/**
 	 * The step definitions below match with Katalon sample Gherkin steps
 	 */
-	WebDriver driver = DriverFactory.getWebDriver()
+	//WebDriver driver = DriverFactory.getWebDriver()
 
-	JavascriptExecutor executor = ((driver) as JavascriptExecutor)
+	//JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 	@Given("User is on Mobile Legends Page of VocaGame")
 	def user_is_on_mobile_legends_page_of_voca_game() {
 		println "a"
@@ -94,7 +94,7 @@ class MobileLegends {
 		println "b"
 		WebElement KonfirmasiTopUpButton = WebUiCommonHelper.findWebElement(findTestObject('Mobile Legends/KonfirmasiTopUpButton'),30)
 
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", KonfirmasiTopUpButton);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", KonfirmasiTopUpButton);
 
 		WebUI.verifyElementNotClickable(findTestObject('Mobile Legends/KonfirmasiTopUpButton'))
 	}
@@ -103,7 +103,7 @@ class MobileLegends {
 	def user_chooses_diamonds_on_mobile_legends_page_of_voca_game(Integer int1) {
 		println "c"
 		WebElement threediamonds = WebUiCommonHelper.findWebElement(findTestObject('Mobile Legends/3DiamondsArticle'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", threediamonds);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", threediamonds);
 		WebUI.click(findTestObject('Mobile Legends/3DiamondsArticle'))
 	}
 
@@ -116,7 +116,7 @@ class MobileLegends {
 	def user_clicks_pakai_kode_voucher_button_on_mobile_legends_page_of_voca_game() {
 		println "e"
 		WebElement pakaikodevoucherbutton = WebUiCommonHelper.findWebElement(findTestObject('Mobile Legends/PakaiKodeVoucherButton'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", pakaikodevoucherbutton);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", pakaikodevoucherbutton);
 		WebUI.click(findTestObject('Mobile Legends/PakaiKodeVoucherButton'))
 	}
 
@@ -176,7 +176,7 @@ class MobileLegends {
 		// Write code here that turns the phrase above into concrete actions
 		println "g"
 		WebElement useridtextbox = WebUiCommonHelper.findWebElement(findTestObject('MobileLegends/UserIDTextbox'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", useridtextbox);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", useridtextbox);
 		WebUI.setText(findTestObject('MobileLegends/UserIDTextbox'), string)
 	}
 
@@ -185,7 +185,7 @@ class MobileLegends {
 		// Write code here that turns the phrase above into concrete actions
 		println "h"
 		WebElement zoneidtextbox = WebUiCommonHelper.findWebElement(findTestObject('MobileLegends/ZoneIDTextbox'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", zoneidtextbox);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", zoneidtextbox);
 		WebUI.setText(findTestObject('MobileLegends/ZoneIDTextbox'), string)
 	}
 
@@ -194,7 +194,7 @@ class MobileLegends {
 		// Write code here that turns the phrase above into concrete actions
 		println "i"
 		WebElement nomorwhatsapptextbox = WebUiCommonHelper.findWebElement(findTestObject('MobileLegends/NomorWhatsAppTextbox'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", nomorwhatsapptextbox);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", nomorwhatsapptextbox);
 		WebUI.setText(findTestObject('MobileLegends/NomorWhatsAppTextbox'), string)
 	}
 
@@ -203,8 +203,8 @@ class MobileLegends {
 		// Write code here that turns the phrase above into concrete actions
 		println "j"
 		WebElement qrisbutton = WebUiCommonHelper.findWebElement(findTestObject('MobileLegends/QRISButton'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", qrisbutton);
-		executor.executeScript('arguments[0].click()', qrisbutton)
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", qrisbutton);
+		//executor.executeScript('arguments[0].click()', qrisbutton)
 	}
 
 	@When("User clicks Konfirmasi Top Up Button on Mobile Legends Page of VocaGame")
@@ -212,7 +212,7 @@ class MobileLegends {
 		// Write code here that turns the phrase above into concrete actions
 		println "k"
 		WebElement qrisdiv = WebUiCommonHelper.findWebElement(findTestObject('MobileLegends/QRISDiv'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", qrisdiv);
-		executor.executeScript('arguments[0].click()', qrisdiv)
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", qrisdiv);
+		//executor.executeScript('arguments[0].click()', qrisdiv)
 	}
 }

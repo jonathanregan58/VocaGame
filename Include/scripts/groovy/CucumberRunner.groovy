@@ -23,10 +23,10 @@ import cucumber.api.CucumberOptions
 import cucumber.api.junit.Cucumber
 
 @RunWith(Cucumber.class)
-//@CucumberOptions(features="Include/features/VocaGameMobileLegends.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"])
+//@CucumberOptions(features="Include/features/VocaGameMobileLegends.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"],tags = "@VocaGameMobileLegends1")
 //@CucumberOptions(features="Include/features/VocaGameRegister.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"],tags = "@VocaGameRegister1")
 
-//@CucumberOptions(features="Include/features/VocaGameForgetPasswordandResetPassword.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"],tags = "@VocaGameForgetPassword1")
-@CucumberOptions(features="Include/features/VocaGameLogin.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"])
+@CucumberOptions(features="Include/features/VocaGameForgetPasswordandResetPassword.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"],tags = "@VocaGameForgetPassword1")
+//@CucumberOptions(features="Include/features/VocaGameLogin.feature",glue="",plugin=["pretty", "html:ReportsFolder", "json:ReportsFolder.cucumber.json"],tags = "@VocaGameLogin1")
 public class CucumberRunner {
 }

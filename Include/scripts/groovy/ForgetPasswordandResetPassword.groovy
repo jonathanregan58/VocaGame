@@ -75,9 +75,9 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 
 class ForgetPasswordandResetPassword {
-	WebDriver driver = DriverFactory.getWebDriver()
+	//WebDriver driver = DriverFactory.getWebDriver()
 
-	JavascriptExecutor executor = ((driver) as JavascriptExecutor)
+	//JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 	/**
 	 * The step definitions below match with Katalon sample Gherkin steps
 	 */
@@ -127,7 +127,7 @@ class ForgetPasswordandResetPassword {
 	 */
 
 	/*
-	 * 
+	 *
 	 @Given("I want to write a step with (.*)")
 	 def I_want_to_write_a_step_with_name(String name) {
 	 println name
@@ -140,19 +140,21 @@ class ForgetPasswordandResetPassword {
 	 def I_verify_the_status_in_step(String status) {
 	 println status
 	 }
-	 * 
+	 *
 	 */
 
 	@Given("User is on Forget Password Page of VocaGame")
 	def user_is_on_forget_password_page_of_voca_game() {
 		println "a"
-		System.setProperty("webdriver.chrome.driver", "C:\\\\Users\\\\user\\\\.katalon\\\\packages\\\\Katalon_Studio_Windows_64-8.6.8\\\\Katalon_Studio_Windows_64-8.6.8\\\\configuration\\\\resources\\\\drivers\\\\chromedriver_win32\\\\chromedriver.exe")
-		ChromeOptions options = new ChromeOptions()
-		options.setExperimentalOption('excludeSwitches', ['enable-automation'])
-		options.setExperimentalOption('useAutomationExtension', false)
-		options.addArguments("–disable-blink-features=AutomationControlled")
-		WebDriver driver = new ChromeDriver(options)
-		DriverFactory.changeWebDriver(driver)
+		/*
+		 System.setProperty("webdriver.chrome.driver", "C:\\\\Users\\\\user\\\\.katalon\\\\packages\\\\Katalon_Studio_Windows_64-8.6.8\\\\Katalon_Studio_Windows_64-8.6.8\\\\configuration\\\\resources\\\\drivers\\\\chromedriver_win32\\\\chromedriver.exe")
+		 ChromeOptions options = new ChromeOptions()
+		 options.setExperimentalOption('excludeSwitches', ['enable-automation'])
+		 options.setExperimentalOption('useAutomationExtension', false)
+		 options.addArguments("–disable-blink-features=AutomationControlled")
+		 WebDriver driver = new ChromeDriver(options)
+		 DriverFactory.changeWebDriver(driver)
+		 */
 		WebUI.openBrowser('https://vocagame.com/account/auth/forgot-password')
 		WebUI.maximizeWindow()
 		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'), 120)
@@ -163,7 +165,7 @@ class ForgetPasswordandResetPassword {
 	def void user_clicks_button_on_forget_password_page_of_voca_game(String string) {
 		println "b"
 		WebElement kirimkodeotp = WebUiCommonHelper.findWebElement(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
 
 		WebUI.click(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'))
 	}
@@ -283,7 +285,7 @@ class ForgetPasswordandResetPassword {
 		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/NomorWhatsAppTextbox'), angka)
 
 		WebElement kirimkodeotp = WebUiCommonHelper.findWebElement(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
 
 		WebUI.click(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'))
 
@@ -340,7 +342,7 @@ class ForgetPasswordandResetPassword {
 	@Then("the validation messages appears on Reset Password Page of VocaGame")
 	public void the_validation_messages_appears_on_reset_password_page_of_voca_game(io.cucumber.datatable.DataTable dataTable) {
 		println "i"
-		
+
 		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
 		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
 		String message = WebUI.getText(findTestObject('ForgetPasswordandResetPassword/PopupValidation'))

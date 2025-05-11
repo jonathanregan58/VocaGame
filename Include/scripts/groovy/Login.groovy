@@ -95,10 +95,10 @@ import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import org.openqa.selenium.JavascriptExecutor
 
 class Login {
-	
-	WebDriver driver = DriverFactory.getWebDriver()
-	
-		JavascriptExecutor executor = ((driver) as JavascriptExecutor)
+
+	//WebDriver driver = DriverFactory.getWebDriver()
+
+	//JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 	/**
 	 * The step definitions below match with Katalon sample Gherkin steps
 	 */
@@ -162,8 +162,8 @@ class Login {
 	def user_clicks_button_on_login_page_of_voca_game(String string) {
 		println "b"
 		WebElement login = WebUiCommonHelper.findWebElement(findTestObject('Login/ButtonLogin'),30)
-		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", login);
-		
+		//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", login);
+
 		WebUI.click(findTestObject('Login/ButtonLogin'))
 	}
 

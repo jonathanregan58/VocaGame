@@ -95,9 +95,9 @@ import org.openqa.selenium.chrome.ChromeDriver
 
 class Register {
 
-	WebDriver driver = DriverFactory.getWebDriver()
+	//WebDriver driver = DriverFactory.getWebDriver()
 
-	JavascriptExecutor executor = ((driver) as JavascriptExecutor)
+	//JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 
 	/*
 	 @Given("User is on Register Page of VocaGame")
@@ -142,38 +142,38 @@ class Register {
 		//
 		// For other transformations you can register a DataTableType.
 		println "c"
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/NamaDepanMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/NamaDepanMessage'), 120)
-		
+
 		String message = WebUI.getText(findTestObject('Register/NamaDepanMessage'))
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/NamaBelakangMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/NamaBelakangMessage'), 120)
-		
+
 		String message1 = WebUI.getText(findTestObject('Register/NamaBelakangMessage'))
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/NomorWhatsAppMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/NomorWhatsAppMessage'), 120)
-		
+
 		String message2 = WebUI.getText(findTestObject('Register/NomorWhatsAppMessage'))
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/PasswordMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/PasswordMessage'), 120)
-		
+
 		String message3 = WebUI.getText(findTestObject('Register/PasswordMessage'))
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/KonfirmasiPasswordMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/KonfirmasiPasswordMessage'), 120)
-		
+
 		String message4 = WebUI.getText(findTestObject('Register/KonfirmasiPasswordMessage'))
-		
+
 		String result =""
 		String result1 =""
 		String result2 =""
 		String result3 =""
 		String result4 =""
-		
+
 		List<String> dataL = dataTable.asList(String.class)
 		for (int i ; i<dataL.size(); i++) {
 			println dataL.get(i)
@@ -190,12 +190,12 @@ class Register {
 		assert result4 == message4
 		/*
 		 |Nama Depan tidak boleh kosong!|
-      |Nama Belakang tidak boleh kosong!|
-      |Nomor WhatsApp tidak boleh kosong!|
-      |Password tidak boleh kosong!|
-      |Konfirmasi Password tidak boleh kosong!|
+		 |Nama Belakang tidak boleh kosong!|
+		 |Nomor WhatsApp tidak boleh kosong!|
+		 |Password tidak boleh kosong!|
+		 |Konfirmasi Password tidak boleh kosong!|
 		 */
-		
+
 	}
 
 	@Then("the validation messages appears on Register Page of VocaGame2")
@@ -211,16 +211,16 @@ class Register {
 
 		WebUI.waitForElementPresent(findTestObject('Register/PopUpValidation'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/PopUpValidation'), 120)
-		
+
 		String message = WebUI.getText(findTestObject('Register/PopUpValidation'))
-		
+
 		String result =""
-		
+
 		List<String> dataL = dataTable.asList(String.class)
 		for (int i ; i<dataL.size(); i++) {
 			println dataL.get(i)
 			result = dataL.get(0);
-			
+
 		}
 		assert result == message
 		//Phone number is already registered. Please use a different phone number.
@@ -236,19 +236,19 @@ class Register {
 		//
 		// For other transformations you can register a DataTableType.
 		println "c2"
-		
+
 		WebUI.waitForElementPresent(findTestObject('Register/KonfirmasiPasswordMessage'), 120)
 		WebUI.verifyElementPresent(findTestObject('Register/KonfirmasiPasswordMessage'), 120)
-		
+
 		String message = WebUI.getText(findTestObject('Register/KonfirmasiPasswordMessage'))
-		
+
 		String result =""
-		
+
 		List<String> dataL = dataTable.asList(String.class)
 		for (int i ; i<dataL.size(); i++) {
 			println dataL.get(i)
 			result = dataL.get(0);
-			
+
 		}
 		assert result == message
 		//Password dan Konfirmasi Password tidak sesuai
@@ -268,28 +268,28 @@ class Register {
 		for (int i ; i<dataL.size(); i++) {
 			println dataL.get(i)
 			WebElement namadepan = WebUiCommonHelper.findWebElement(findTestObject('Register/NamaDepanTextbox'),30)
-			executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", namadepan);
+			//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", namadepan);
 
 			WebUI.setText(findTestObject('Register/NamaDepanTextbox'), dataL.get(0))
 
 			WebElement namabelakang = WebUiCommonHelper.findWebElement(findTestObject('Register/NamaBelakangTextbox'),30)
-			executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", namabelakang);
+			//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", namabelakang);
 
 			WebUI.setText(findTestObject('Register/NamaBelakangTextbox'), dataL.get(1))
 
 			WebElement nomorwhatsapp = WebUiCommonHelper.findWebElement(findTestObject('Register/NomorWhatsAppTextbox'),30)
-			executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", nomorwhatsapp);
+			//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", nomorwhatsapp);
 
 			WebUI.setText(findTestObject('Register/NomorWhatsAppTextbox'), dataL.get(2))
 
 			WebElement password = WebUiCommonHelper.findWebElement(findTestObject('Register/PasswordTextbox'),30)
-			executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", password);
+			//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", password);
 
 			WebUI.setText(findTestObject('Register/PasswordTextbox'), dataL.get(3))
 
 
 			WebElement konfirmasipassword = WebUiCommonHelper.findWebElement(findTestObject('Register/KonfirmasiPasswordTextbox'),30)
-			executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", konfirmasipassword);
+			//executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", konfirmasipassword);
 			WebUI.setText(findTestObject('Register/KonfirmasiPasswordTextbox'), dataL.get(4))
 		}
 		/*
