@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>PopupValidation</name>
+   <name>KonfirmasiKodeOTPButton</name>
    <tag></tag>
-   <elementGuidId>77c156bd-2d0f-42ec-b173-72bf13f8ab95</elementGuidId>
+   <elementGuidId>c8594545-f4fc-4d1c-8349-622b48af6020</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;__next&quot;]/div[2]/div/div/div/div/div[2]/p[1]</value>
+         <value>//*[@id=&quot;__next&quot;]/section/div/div/div/div[4]/button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

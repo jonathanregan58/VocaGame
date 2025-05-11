@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>PopupValidation</name>
+   <name>ButtonLogin</name>
    <tag></tag>
-   <elementGuidId>77c156bd-2d0f-42ec-b173-72bf13f8ab95</elementGuidId>
+   <elementGuidId>8afbab92-61be-4d74-a56d-9f1a8cbe5cd4</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;__next&quot;]/div[2]/div/div/div/div/div[2]/p[1]</value>
+         <value>//*[@id=&quot;__next&quot;]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[3]/button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

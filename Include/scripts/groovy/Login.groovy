@@ -90,7 +90,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
+
+import org.openqa.selenium.JavascriptExecutor
+
 class Login {
+	
+	WebDriver driver = DriverFactory.getWebDriver()
+	
+		JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 	/**
 	 * The step definitions below match with Katalon sample Gherkin steps
 	 */
@@ -153,6 +161,10 @@ class Login {
 	@When("User clicks button {string} on Login Page of VocaGame")
 	def user_clicks_button_on_login_page_of_voca_game(String string) {
 		println "b"
+		WebElement login = WebUiCommonHelper.findWebElement(findTestObject('Login/ButtonLogin'),30)
+		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", login);
+		
+		WebUI.click(findTestObject('Login/ButtonLogin'))
 	}
 
 
@@ -266,7 +278,6 @@ class Login {
 		// For other transformations you can register a DataTableType.
 		println "f3"
 
-		println "f2"
 
 		WebUI.waitForElementPresent(findTestObject('Login/ValidationPopup'), 120)
 		WebUI.verifyElementPresent(findTestObject('Login/ValidationPopup'), 120)

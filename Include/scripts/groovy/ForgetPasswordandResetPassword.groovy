@@ -75,6 +75,9 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 
 class ForgetPasswordandResetPassword {
+	WebDriver driver = DriverFactory.getWebDriver()
+
+	JavascriptExecutor executor = ((driver) as JavascriptExecutor)
 	/**
 	 * The step definitions below match with Katalon sample Gherkin steps
 	 */
@@ -150,7 +153,7 @@ class ForgetPasswordandResetPassword {
 		options.addArguments("–disable-blink-features=AutomationControlled")
 		WebDriver driver = new ChromeDriver(options)
 		DriverFactory.changeWebDriver(driver)
-		WebUI.openBrowser('https://vocagame.com/')
+		WebUI.openBrowser('https://vocagame.com/account/auth/forgot-password')
 		WebUI.maximizeWindow()
 		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'), 120)
 		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/NomorWhatsAppTextbox'), 120)
@@ -159,6 +162,10 @@ class ForgetPasswordandResetPassword {
 	@When("User clicks button {string} on Forget Password Page of VocaGame")
 	def void user_clicks_button_on_forget_password_page_of_voca_game(String string) {
 		println "b"
+		WebElement kirimkodeotp = WebUiCommonHelper.findWebElement(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'),30)
+		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
+
+		WebUI.click(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'))
 	}
 
 	@Then("the validation messages appears on Forget Password Page of VocaGame1")
@@ -171,6 +178,21 @@ class ForgetPasswordandResetPassword {
 		//
 		// For other transformations you can register a DataTableType.
 		println "c"
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		String message = WebUI.getText(findTestObject('ForgetPasswordandResetPassword/PopupValidation'))
+
+		String result =""
+
+		List<String> dataL = dataTable.asList(String.class)
+		for (int i ; i<dataL.size(); i++) {
+			println dataL.get(i)
+			result = dataL.get(0);
+
+		}
+		assert result == message
+		//phoneNumber should not be empty
 	}
 
 	@Then("the validation messages appears on Forget Password Page of VocaGame2")
@@ -183,35 +205,155 @@ class ForgetPasswordandResetPassword {
 		//
 		// For other transformations you can register a DataTableType.
 		println "c1"
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		String message = WebUI.getText(findTestObject('ForgetPasswordandResetPassword/PopupValidation'))
+
+		String result =""
+
+		List<String> dataL = dataTable.asList(String.class)
+		for (int i ; i<dataL.size(); i++) {
+			println dataL.get(i)
+			result = dataL.get(0);
+
+		}
+		assert result == message
+		//Account not found, please check your phone number
 	}
 
 	@When("User types {string} on Nomor WhatsApp textbox on Forget Password Page of VocaGame")
 	public void user_types_on_nomor_whats_app_textbox_on_forget_password_page_of_voca_game(String string) {
 		println "d"
+
+
+
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/NomorWhatsAppTextbox'), string)
 	}
 
 	@Then("User is directed to Reset Password Page of VocaGame")
 	public void user_is_directed_to_reset_password_page_of_voca_game() {
 		println "e"
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitPertamaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitPertamaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeduaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeduaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKetigaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKetigaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeempatTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeempatTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKelimaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKelimaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeenamTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeenamTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KonfirmasiKodeOTPButton'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KonfirmasiKodeOTPButton'), 120)
+		String currentUrl = WebUI.getUrl()
+
+		String result = ""
+
+		if (currentUrl == 'https://vocagame.com/account/auth/reset-password') {
+			result = "OK"
+		}
+
+		assert result == "OK"
+
+		//https://vocagame.com/account/auth/reset-password
+
 	}
 
 	@Given("User is on Reset Password Page of VocaGame")
 	public void user_is_on_reset_password_page_of_voca_game() {
 		println "f"
+
+		WebUI.openBrowser('https://vocagame.com/account/auth/forgot-password')
+		WebUI.maximizeWindow()
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'), 120)
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/NomorWhatsAppTextbox'), 120)
+
+
+		String angka = "82111152597"
+
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/NomorWhatsAppTextbox'), angka)
+
+		WebElement kirimkodeotp = WebUiCommonHelper.findWebElement(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'),30)
+		executor.executeScript("arguments[0].scrollIntoViewIfNeeded()", kirimkodeotp);
+
+		WebUI.click(findTestObject('ForgetPasswordandResetPassword/KirimKodeOTPButton'))
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitPertamaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitPertamaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeduaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeduaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKetigaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKetigaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeempatTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeempatTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKelimaTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKelimaTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeenamTextbox'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeenamTextbox'), 120)
+
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/KonfirmasiKodeOTPButton'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/KonfirmasiKodeOTPButton'), 120)
+		String currentUrl = WebUI.getUrl()
+
+		String result = ""
+
+		if (currentUrl == 'https://vocagame.com/account/auth/reset-password') {
+			result = "OK"
+		}
+
+		assert result == "OK"
+
+
 	}
 
 	@When("User types \"{int}\"on kode OTP textbox on Reset Password Page of VocaGame")
 	public void user_types_on_kode_otp_textbox_on_reset_password_page_of_voca_game(Integer int1) {
 		println "g"
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitPertamaTextbox'), 7)
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeduaTextbox'), 7)
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKetigaTextbox'), 7)
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeempatTextbox'), 7)
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKelimaTextbox'), 7)
+		WebUI.setText(findTestObject('ForgetPasswordandResetPassword/KodeOTPDigitKeenamTextbox'), 7)
 	}
 
 	@When("User clicks button {string} on Reset Password Page of VocaGame")
 	public void user_clicks_button_on_reset_password_page_of_voca_game(String string) {
 		println "h"
+		WebUI.click(findTestObject('ForgetPasswordandResetPassword/KonfirmasiKodeOTPButton'))
 	}
 
 	@Then("the validation messages appears on Reset Password Page of VocaGame")
 	public void the_validation_messages_appears_on_reset_password_page_of_voca_game(io.cucumber.datatable.DataTable dataTable) {
 		println "i"
+		
+		WebUI.waitForElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		WebUI.verifyElementPresent(findTestObject('ForgetPasswordandResetPassword/PopupValidation'), 120)
+		String message = WebUI.getText(findTestObject('ForgetPasswordandResetPassword/PopupValidation'))
+
+		String result =""
+
+		List<String> dataL = dataTable.asList(String.class)
+		for (int i ; i<dataL.size(); i++) {
+			println dataL.get(i)
+			result = dataL.get(0);
+
+		}
+		assert result == message
+		//The OTP you entered is invalid. Please double-check the OTP and try again.
 	}
 }
